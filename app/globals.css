@@ -2,6 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .loader {
+    width: 35px;
+    height: 80px;
+    position: relative;
+  }
+
+  .loader:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px 5px;
+    border-top: 1px solid #bbb6aa;
+    border-bottom: 4px solid #bbb6aa;
+    background:
+      linear-gradient(#612329 0 0) bottom no-repeat content-box,
+      #e4e0d7;
+    mix-blend-mode: darken;
+    -webkit-animation: l1 1.5s infinite linear;
+    animation: l1 1.5s infinite linear;
+  }
+
+  .loader:before {
+    content: "";
+    position: absolute;
+    inset: -18px calc(50% - 2px) 8px;
+    background: #eb6b3e;
+    transform-origin: bottom;
+    transform: rotate(8deg);
+  }
+
+  @-webkit-keyframes l1 {
+    0% {
+      background-size: 100% 100%
+    }
+
+    100% {
+      background-size: 100% 5%
+    }
+  }
+
+  @keyframes l1 {
+    0% {
+      background-size: 100% 100%
+    }
+
+    100% {
+      background-size: 100% 5%
+    }
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,14 +68,13 @@
   }
 }
 
+/* color: rgb(var(--foreground-rgb)); */
+/* background: linear-gradient(to bottom,
+    transparent,
+    rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)) */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: black;
+  background-color: whitesmoke;
 }
 
 @layer utilities {
